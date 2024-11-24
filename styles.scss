@@ -1,0 +1,196 @@
+$primary-color: #fff;
+$add-btn: #33b249;
+$delete-btn: #D11A2A;
+
+
+$gradientColor1: #a9adb0; 
+$gradientColor2: #46a2c7; 
+$gradientColor3: #4a68bd;
+
+@mixin flex(){
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@mixin inputData {
+    width: 100%;
+    padding: .5rem;
+    font-size: 1rem;
+}
+
+@mixin gradient($color1, $color2, $color3) {
+    background-color: $color1;
+    background-image: linear-gradient(to right top, $color1, $color2, $color3);
+
+}
+
+@mixin sectionCard() {
+    border: 1px solid black;
+    border: 20px;
+    color: black;
+    background-color: $primary-color;
+}
+
+@mixin defaultContainer() {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 30px;
+    border: 1px solid black;
+}
+
+@mixin btnStyle($color, $backColor) {
+    color: $color;
+    border: none;
+    background-color: $backColor;
+    cursor: pointer;
+    
+    &:hover {
+        background-color: lighten($backColor, 10);
+    }
+
+    &:active {
+        background-color: lighten($backColor, 20);
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    height: 100%
+}
+
+
+body {
+    color: $primary-color;
+    font-size: 1.3rem;
+    text-align: center;
+    @include flex();
+    @include gradient($gradientColor1, $gradientColor2, $gradientColor3);
+}
+
+h1 {
+    margin-top: 1.5rem;
+}
+
+#income-field {
+    margin-top: 2rem;
+    margin: 1rem;
+}
+
+.income-container {
+    @include defaultContainer();
+
+    @include flex();
+    align-items: center;
+
+    @include sectionCard();
+
+    color: black;
+    text-align: center;
+
+   button, h2, p, input {
+        margin: .9rem;
+    }
+    h2 {
+        color: black;
+    }
+
+    input {
+        @include inputData();
+    }
+
+    button {
+        @include inputData();
+        @include btnStyle($primary-color, $add-btn)
+    }
+}
+
+#expense-field {
+    margin-top: 2rem;
+    margin: 1rem;
+}
+
+.expense-container {
+    @extend .income-container;
+}
+
+
+#budget-section {
+    margin-top: 2rem;
+    margin: 1rem;
+    
+    h2 {
+        margin-bottom: 1rem;
+    }
+}
+
+.budget-container {
+    @include defaultContainer();
+    @include sectionCard();
+    @include flex();
+}
+
+#display-budget {
+    @include flex();
+    flex-direction: row;
+    margin: 2rem;
+
+    h3 {
+        margin-left: 2rem;
+
+        &:nth-child(odd) {
+            color: $add-btn;
+        }
+
+        &:nth-child(even) {
+            color: $delete-btn;
+        }
+    }
+
+}
+
+#income-error, #income-num-error {
+    color: $delete-btn;
+    text-align: left
+}
+
+#expense-error, #expense-num-error  {
+    @extend #income-error;
+}
+
+#table {
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    font-size: 18px;
+
+    .titles {
+        background-color: darken($primary-color, 30);
+    }
+
+    th, td {
+        padding: 1rem;
+        text-align: center;
+    }
+
+    tr {
+        border-bottom: 1px solid #ddd;
+    }
+
+    button {
+        @include inputData();
+        @include btnStyle($primary-color, $delete-btn);
+        width: 70%;
+    }
+}
+
+
+i {
+    font-size: 2rem;
+    margin: 2rem;
+}

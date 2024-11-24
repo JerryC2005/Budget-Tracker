@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BudgetTracker</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <script src="https://kit.fontawesome.com/2aa00d318a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>Budget Tracker</h1>
+
+    <div id="income-field">
+        <div class="income-container">
+            <h2>Income</h2>
+            <p>enter income name and amount:</p>
+
+            <span id="income-error" hidden>Please enter a name for income</span>
+            <input id="income-name" type="text" placeholder="Income Name">
+
+            <span id="income-num-error" hidden>Please enter a valid number</span>
+            <input id="income-amount" type="text" placeholder="Income Amount">
+            
+            <button id="add-income-btn">+Add</button>
+        </div>
+    </div>
+
+    <div id="expense-field">
+        <div class="expense-container">
+            <h2>Expenses</h2>
+            <p>enter expense name and amount:</p>
+
+            <span id="expense-error" hidden>Please enter a name for income</span>
+            <input type="text" id="expenses-name" placeholder="expense Name">
+
+            <span id="expense-num-error" hidden>Please enter a valid number for expenses</span>
+            <input type="text" id="expenses-amount" placeholder="expense Amount">
+
+            <button id="add-expenses-btn">+Add</button>
+        </div>
+    </div>
+
+    <div id="budget-section">
+        <div class="budget-container">
+            <h2>Budget Sheet</h2>
+            <h2 id="display-balance">Balance: $2000</h2>
+            <div id="display-budget">
+                <h3 id="display-income">Income: $3000</h3>
+                <h3 id="display-expense">Expense: $3000</h3>
+            </div>
+
+            <table id="table">
+                <tr class="titles">
+                    <th>S.no.</th>
+                    <th>Name</th>
+                    <th>Amount</th>
+                    <th>Type</th>
+                    <th>Delete</th>
+                </tr>
+                <tr id="budget-line">
+                    <td>1</td>
+                    <td>job</td>
+                    <td>2000</td>
+                    <td>1</td>
+                    <td><button id="del-budget-line">- delete</button></td>
+                </tr>
+
+                <tr id="budget-line">
+                    <td>1</td>
+                    <td>job</td>
+                    <td>2000</td>
+                    <td>1</td>
+                    <td><button>- delete</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <a href="https://github.com/JerryC2005" target="_blank"><i class="fa-brands fa-github"></i></a>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
